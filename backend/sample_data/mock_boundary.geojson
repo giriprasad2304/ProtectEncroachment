@@ -1,0 +1,26 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "parcel_id": "parcel_001",
+        "name": "Public Buffer Zone Sector 4",
+        "authority": "Land Revenue Department",
+        "land_type": "Government Buffer Zone"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [77.5946, 12.9756],
+            [77.5971, 12.9756],
+            [77.5971, 12.9716],
+            [77.5946, 12.9716],
+            [77.5946, 12.9756]
+          ]
+        ]
+      }
+    }
+  ]
+}

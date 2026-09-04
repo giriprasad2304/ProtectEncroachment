@@ -1,0 +1,320 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+
+/* =============================================
+   DESIGN TOKENS & BASE RESET
+   ============================================= */
+:root {
+  --bg-base:        #070a13;
+  --bg-surface:     #0d1322;
+  --bg-card:        rgba(15, 23, 42, 0.85);
+  --bg-card-hover:  rgba(20, 30, 55, 0.9);
+  --border-subtle:  rgba(255, 255, 255, 0.07);
+  --border-bright:  rgba(255, 255, 255, 0.14);
+  --cyan:           #06b6d4;
+  --cyan-dim:       rgba(6, 182, 212, 0.12);
+  --emerald:        #10b981;
+  --rose:           #ef4444;
+  --amber:          #f59e0b;
+  --text-primary:   #f8fafc;
+  --text-secondary: #94a3b8;
+  --text-muted:     #64748b;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: var(--bg-base);
+  color: var(--text-primary);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* =============================================
+   ANIMATED GRID BACKGROUND
+   ============================================= */
+.bg-grid {
+  background-image:
+    linear-gradient(rgba(6, 182, 212, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(6, 182, 212, 0.02) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+/* =============================================
+   GLASS CARDS & CONTAINERS
+   ============================================= */
+.glass {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-radius: 10px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.glass:hover {
+  border-color: var(--border-bright);
+}
+
+/* =============================================
+   BUTTONS
+   ============================================= */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  background: var(--cyan);
+  color: #070a13;
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 0.03em;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 10px rgba(6, 182, 212, 0.25);
+}
+.btn-primary:hover {
+  background: #0891b2;
+  box-shadow: 0 4px 16px rgba(6, 182, 212, 0.4);
+}
+.btn-primary:disabled {
+  background: #1e293b;
+  color: #64748b;
+  box-shadow: none;
+  cursor: not-allowed;
+}
+
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 6px 12px;
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--text-secondary);
+  font-weight: 600;
+  font-size: 11px;
+  border: 1px solid var(--border-subtle);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.btn-ghost:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: var(--border-bright);
+  color: var(--text-primary);
+}
+
+/* =============================================
+   INPUT FIELDS
+   ============================================= */
+.input-field {
+  width: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  border: 1px solid var(--border-subtle);
+  border-radius: 6px;
+  padding: 8px 10px;
+  color: var(--text-primary);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.input-field:focus {
+  border-color: var(--cyan);
+  box-shadow: 0 0 0 2px rgba(6, 182, 212, 0.15);
+}
+.input-field::placeholder {
+  color: var(--text-muted);
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(0.6);
+  cursor: pointer;
+}
+
+/* =============================================
+   BADGES & PILLS
+   ============================================= */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 4px;
+  border: 1px solid;
+}
+.badge-cyan    { background: rgba(6, 182, 212, 0.1);  color: #06b6d4; border-color: rgba(6, 182, 212, 0.25); }
+.badge-emerald { background: rgba(16, 185, 129, 0.1); color: #10b981; border-color: rgba(16, 185, 129, 0.25); }
+.badge-rose    { background: rgba(239, 68, 68, 0.1);  color: #ef4444; border-color: rgba(239, 68, 68, 0.25); }
+.badge-amber   { background: rgba(245, 158, 11, 0.1); color: #f59e0b; border-color: rgba(245, 158, 11, 0.25); }
+
+/* =============================================
+   KEYFRAMES & ANIMATIONS
+   ============================================= */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(20px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+@keyframes glowPulse {
+  0%, 100% { opacity: 1; }
+  50%      { opacity: 0.5; }
+}
+
+.animate-fadeUp { animation: fadeUp 0.35s ease-out forwards; }
+.animate-fadeIn { animation: fadeIn 0.3s ease-out forwards; }
+
+/* =============================================
+   SECTION TITLES
+   ============================================= */
+.section-title {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+.section-title .dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--cyan);
+  flex-shrink: 0;
+}
+
+/* =============================================
+   PROGRESS BAR
+   ============================================= */
+.progress-bar-track {
+  width: 100%;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 99px;
+  overflow: hidden;
+}
+.progress-bar-fill {
+  height: 100%;
+  border-radius: 99px;
+  background: var(--cyan);
+  transition: width 0.3s ease;
+}
+
+/* =============================================
+   LEAFLET OVERRIDES
+   ============================================= */
+.leaflet-container {
+  background: #070a13 !important;
+  font-family: 'Inter', sans-serif !important;
+}
+.leaflet-control-zoom a {
+  background: #0d1525 !important;
+  color: #94a3b8 !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
+.leaflet-control-zoom a:hover {
+  background: #1a2540 !important;
+  color: #06b6d4 !important;
+}
+.leaflet-bar {
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 6px !important;
+  overflow: hidden;
+}
+.leaflet-popup-content-wrapper {
+  background: rgba(13, 19, 34, 0.95) !important;
+  backdrop-filter: blur(12px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  border-radius: 8px !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6) !important;
+  padding: 4px 6px !important;
+}
+.leaflet-popup-tip {
+  background: rgba(13, 19, 34, 0.95) !important;
+}
+.leaflet-tooltip {
+  background: rgba(13, 19, 34, 0.95) !important;
+  border: 1px solid rgba(255, 255, 255, 0.14) !important;
+  border-radius: 6px !important;
+  color: #f8fafc !important;
+  padding: 4px 8px !important;
+  font-size: 11px !important;
+}
+
+/* =============================================
+   TOGGLE SWITCH
+   ============================================= */
+.toggle-wrap {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+.toggle-track {
+  width: 32px;
+  height: 18px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 10px;
+  position: relative;
+  transition: background 0.2s, border-color 0.2s;
+}
+.toggle-track.on {
+  background: rgba(6, 182, 212, 0.3);
+  border-color: var(--cyan);
+}
+.toggle-knob {
+  position: absolute;
+  top: 1px;
+  left: 1px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #64748b;
+  transition: transform 0.2s, background 0.2s;
+}
+.toggle-track.on .toggle-knob {
+  transform: translateX(14px);
+  background: var(--cyan);
+}
+
+/* =============================================
+   SCROLLBARS
+   ============================================= */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #1e293b;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #334155;
+}
