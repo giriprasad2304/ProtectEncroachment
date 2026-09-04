@@ -1,9 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-  beforeUrl: 'http://localhost:8000/static/before.png',
-  afterUrl: 'http://localhost:8000/static/after.png',
-  diffUrl: 'http://localhost:8000/static/diff_overlay.png',
+  beforeUrl: '/static/before.png',
+  afterUrl: '/static/after.png',
+  diffUrl: '/static/diff_overlay.png',
   status: 'idle',
 };
 

@@ -11,9 +11,9 @@ export const fetchSatelliteImagery = createAsyncThunk(
       
       // Update imagery URLs in Redux store
       const timestamp = Date.now();
-      const beforeUrl = data.before_url ? `http://localhost:8000${data.before_url}?t=${timestamp}` : `http://localhost:8000/static/before.png?t=${timestamp}`;
-      const afterUrl = data.after_url ? `http://localhost:8000${data.after_url}?t=${timestamp}` : `http://localhost:8000/static/after.png?t=${timestamp}`;
-      const diffUrl = data.diff_url ? `http://localhost:8000${data.diff_url}?t=${timestamp}` : `http://localhost:8000/static/diff_overlay.png?t=${timestamp}`;
+      const beforeUrl = data.before_url ? `${data.before_url}?t=${timestamp}` : `/static/before.png?t=${timestamp}`;
+      const afterUrl = data.after_url ? `${data.after_url}?t=${timestamp}` : `/static/after.png?t=${timestamp}`;
+      const diffUrl = data.diff_url ? `${data.diff_url}?t=${timestamp}` : `/static/diff_overlay.png?t=${timestamp}`;
 
       dispatch(setImageryUrls({
         beforeUrl,

@@ -61,7 +61,7 @@ export default function ReportViewer() {
     );
     try {
       const link = document.createElement('a');
-      link.href = `http://localhost:8000/api/report/${activeId}/pdf`;
+      link.href = `/api/report/${activeId}/pdf`;
       link.setAttribute('download', `bhoomi_rakshak_${activeId.slice(0, 8)}.pdf`);
       document.body.appendChild(link);
       link.click();
